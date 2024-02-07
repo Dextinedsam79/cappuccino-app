@@ -11,7 +11,7 @@ Reproduce the Detail screen below in Flutter.
 - Clone the repo and work on your copy
 - Design the screen above using your knowledge of layout. 
 - Download the app fonts from [here](https://fonts.google.com/specimen/Sora?query=sora)
-- Carefully select and use from the colors listed below:
+- Carefully select and use from the colors listed below: yeah right
     -  2F2D2C
     -  C67C4E
     -  FBBE21
