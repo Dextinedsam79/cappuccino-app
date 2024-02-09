@@ -11,138 +11,149 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.1,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Image.asset(
-                      'assets/arrow-left.jpg',
-                      height: 50,
-                    ),
-                    Text(
-                      'Detail',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontFamily: 'Sora',
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Image.asset(
-                      'assets/Heart.jpg',
-                      height: 50,
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.15,
-                  ),
-                  child: Image.asset(
-                    "assets/Rectangle.jpg",
-                    height: 200,
-                    width: double.infinity,
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.15,
-                  ),
-                  child: Column(
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Container(
+            child: SingleChildScrollView(
+              // padding: EdgeInsets.symmetric(
+              //   horizontal: MediaQuery.of(context).size.width * 0.15,
+              //   vertical: 20,
+              // ),
+              child: Column(
+                // crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      Image.asset(
+                        'assets/arrow-left.jpg',
+                        height: 50,
+                      ),
                       Text(
-                        "Cappucino",
+                        'Detail',
                         style: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 24,
                           fontFamily: 'Sora',
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      Text(
-                        "with Chocolate",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 15.0,
-                          fontFamily: 'Sora',
-                          fontWeight: FontWeight.normal,
-                        ),
-                        textAlign: TextAlign.center,
+                      Image.asset(
+                        'assets/Heart.jpg',
+                        height: 50,
                       ),
                     ],
                   ),
-                ),
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(Icons.star, color: Colors.yellow),
-                        SizedBox(width: 8.0),
-                        Text(
-                          '4.8',
+                  SizedBox(height: 10),
+                  Container(
+                    // width: 300.0,
+                    // height: 300.0,
+                    child: Image.asset(
+                      "assets/Rectangle.jpg",
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 160.0),
+                        child: Text(
+                          "Cappucino",
                           style: TextStyle(
+                            fontSize: 20.0,
                             fontFamily: 'Sora',
-                            fontSize: 24.0,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(width: 4.0),
-                        Text(
-                          '(230)',
+                      ),
+                      SizedBox(height: 5),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 160.0),
+                        child: Text(
+                          "with Chocolate",
                           style: TextStyle(
-                            fontFamily: 'Sora',
+                            color: Colors.grey,
                             fontSize: 15.0,
+                            fontFamily: 'Sora',
                             fontWeight: FontWeight.normal,
                           ),
                         ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Image.asset(
-                          'assets/bean.jpg',
-                          height: 50,
-                        ),
-                        SizedBox(width: 8.0),
-                        Image.asset(
-                          'assets/milk.jpg',
-                          height: 50,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Divider(
-                  color: Colors.grey[300], // Light grey color
-                ),
-                SizedBox(height: 10),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.15,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Paragraph(),
+                      ),
                     ],
                   ),
-                ),
-                SizedBox(height: 20),
-                SizeSelector(),
-                SizedBox(height: 20),
-                PriceAndBuyNow(),
-              ],
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.star,
+                              color: Color.fromARGB(255, 245, 232, 55),
+                              size: 30),
+                          SizedBox(width: 4.0),
+                          Text(
+                            '4.8',
+                            style: TextStyle(
+                              fontFamily: 'Sora',
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(width: 4.0),
+                          Text(
+                            '(230)',
+                            style: TextStyle(
+                              fontFamily: 'Sora',
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Image.asset(
+                            'assets/bean.jpg',
+                            height: 50,
+                          ),
+                          SizedBox(width: 8.0),
+                          Image.asset(
+                            'assets/milk.jpg',
+                            height: 50,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Divider(
+                    color: Colors.grey[200], // Light grey color
+                  ),
+                  SizedBox(height: 5.0),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.of(context).size.width * 0.05,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Paragraph(),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 5.0),
+                  SizeSelector(),
+                  SizedBox(height: 5.0),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.of(context).size.width * 0.3,
+                    ),
+                    child: Divider(
+                      thickness: 3.0,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -209,6 +220,7 @@ class _ParagraphState extends State<Paragraph> {
         child: Text(
           isExpanded ? 'Read Less' : 'Read More',
           style: TextStyle(
+            fontFamily: 'Sora',
             color: Colors.orange,
             fontWeight: FontWeight.bold,
             shadows: [
@@ -238,7 +250,12 @@ class SizeSelector extends StatefulWidget {
 }
 
 class _SizeSelectorState extends State<SizeSelector> {
-  String selectedSize = 'M';
+  String selectedSize = 'M'; // Default selected size
+  Map<String, double> sizePrices = {
+    'S': 3.99,
+    'M': 4.53,
+    'L': 5.99,
+  }; // Map to store prices for each size
 
   @override
   Widget build(BuildContext context) {
@@ -270,6 +287,32 @@ class _SizeSelectorState extends State<SizeSelector> {
                 text: 'L',
                 isSelected: selectedSize == 'L',
                 onPressed: () => _setSize('L')),
+          ],
+        ),
+        SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Price',
+                  style: TextStyle(
+                      color: Colors.grey, fontSize: 16, fontFamily: 'Sora'),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  '\$ ${sizePrices[selectedSize]!.toStringAsFixed(2)}', // Show price based on selected size
+                  style: TextStyle(
+                    color: const Color.fromARGB(218, 144, 65, 36),
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            PriceAndBuyNow(),
           ],
         ),
       ],
@@ -310,16 +353,18 @@ class _SizeButtonState extends State<SizeButton> {
           border: Border.all(
             color: widget.isSelected ? Colors.orange : Colors.grey,
           ),
-          borderRadius: BorderRadius.circular(4),
+          borderRadius: BorderRadius.circular(6),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 8),
           child: Text(
             widget.text,
             style: TextStyle(
-              color: widget.isSelected ? Colors.orange : Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
+                color: widget.isSelected
+                    ? const Color.fromARGB(218, 144, 65, 36)
+                    : Colors.black,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Sora'),
           ),
         ),
       ),
@@ -327,106 +372,46 @@ class _SizeButtonState extends State<SizeButton> {
   }
 }
 
-class PriceAndBuyNow extends StatefulWidget {
-  @override
-  _PriceAndBuyNowState createState() => _PriceAndBuyNowState();
-}
-
-class _PriceAndBuyNowState extends State<PriceAndBuyNow> {
-  double price = 4.53;
-
-  void increasePrice() {
-    setState(() {
-      price += 0.1; // Increment price by 0.1
-    });
-  }
-
-  void decreasePrice() {
-    setState(() {
-      if (price > 0) {
-        price -= 0.1; // Decrement price by 0.1, ensure it doesn't go negative
-      }
-    });
-  }
-
-  void showThankYouMessage() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Thank you for your patronage'),
-      ),
-    );
-  }
-
+class PriceAndBuyNow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Price',
+    return ElevatedButton(
+      onPressed: () {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Thank you for your patronage',
               style: TextStyle(
-                color: Colors.grey,
-                fontSize: 16,
-              ),
+                  fontFamily: 'Sora',
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold),
             ),
-            Text(
-              '\$ ${price.toStringAsFixed(2)}',
-              style: TextStyle(
-                color: Colors.deepOrange,
-                fontSize: 20,
-              ),
-            ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                IconButton(
-                  icon: Icon(Icons.remove),
-                  onPressed: decreasePrice,
-                ),
-                IconButton(
-                  icon: Icon(Icons.add),
-                  onPressed: increasePrice,
-                ),
-              ],
-            ),
-          ],
-        ),
-        ElevatedButton(
-          onPressed: () {
-            // Show thank you message when button is pressed
-            showThankYouMessage();
+          ),
+        );
+      },
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.resolveWith<Color>(
+          (Set<MaterialState> states) {
+            if (states.contains(MaterialState.hovered)) {
+              return Colors.deepOrange.withOpacity(0.8);
+            }
+            return Color.fromARGB(218, 144, 65, 36);
           },
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.resolveWith<Color>(
-              (Set<MaterialState> states) {
-                if (states.contains(MaterialState.hovered)) {
-                  return Colors.deepOrange
-                      .withOpacity(0.8); // Change background color on hover
-                }
-                return Colors.deepOrange;
-              },
-            ),
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
-              ),
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-            child: Text(
-              'Buy Now',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-              ),
-            ),
+        ),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
           ),
         ),
-      ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+        child: Text(
+          'Buy Now',
+          style:
+              TextStyle(color: Colors.white, fontSize: 16, fontFamily: 'Sora'),
+        ),
+      ),
     );
   }
 }
