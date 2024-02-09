@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * 0.1),
+              horizontal: MediaQuery.of(context).size.width * 0.1,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -43,31 +44,38 @@ class MyApp extends StatelessWidget {
                 SizedBox(height: 10),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.15),
-                  child: Image.asset("assets/Rectangle.jpg",
-                      height: 200, width: double.infinity),
+                    horizontal: MediaQuery.of(context).size.width * 0.15,
+                  ),
+                  child: Image.asset(
+                    "assets/Rectangle.jpg",
+                    height: 200,
+                    width: double.infinity,
+                  ),
                 ),
                 SizedBox(height: 10),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.15),
+                    horizontal: MediaQuery.of(context).size.width * 0.15,
+                  ),
                   child: Column(
                     children: [
                       Text(
                         "Cappucino",
                         style: TextStyle(
-                            fontSize: 20.0,
-                            fontFamily: 'Sora',
-                            fontWeight: FontWeight.bold),
+                          fontSize: 20.0,
+                          fontFamily: 'Sora',
+                          fontWeight: FontWeight.bold,
+                        ),
                         textAlign: TextAlign.center,
                       ),
                       Text(
                         "with Chocolate",
                         style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 15.0,
-                            fontFamily: 'Sora',
-                            fontWeight: FontWeight.normal),
+                          color: Colors.grey,
+                          fontSize: 15.0,
+                          fontFamily: 'Sora',
+                          fontWeight: FontWeight.normal,
+                        ),
                         textAlign: TextAlign.center,
                       ),
                     ],
@@ -121,7 +129,8 @@ class MyApp extends StatelessWidget {
                 SizedBox(height: 10),
                 Container(
                   padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.15),
+                    horizontal: MediaQuery.of(context).size.width * 0.15,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -131,6 +140,8 @@ class MyApp extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 SizeSelector(),
+                SizedBox(height: 20),
+                PriceAndBuyNow(),
               ],
             ),
           ),
@@ -297,7 +308,8 @@ class _SizeButtonState extends State<SizeButton> {
         decoration: BoxDecoration(
           color: widget.isSelected ? Colors.orange[50] : Colors.white,
           border: Border.all(
-              color: widget.isSelected ? Colors.orange : Colors.grey),
+            color: widget.isSelected ? Colors.orange : Colors.grey,
+          ),
           borderRadius: BorderRadius.circular(4),
         ),
         child: Padding(
@@ -310,10 +322,111 @@ class _SizeButtonState extends State<SizeButton> {
             ),
           ),
         ),
-
-        
       ),
     );
   }
 }
 
+class PriceAndBuyNow extends StatefulWidget {
+  @override
+  _PriceAndBuyNowState createState() => _PriceAndBuyNowState();
+}
+
+class _PriceAndBuyNowState extends State<PriceAndBuyNow> {
+  double price = 4.53;
+
+  void increasePrice() {
+    setState(() {
+      price += 0.1; // Increment price by 0.1
+    });
+  }
+
+  void decreasePrice() {
+    setState(() {
+      if (price > 0) {
+        price -= 0.1; // Decrement price by 0.1, ensure it doesn't go negative
+      }
+    });
+  }
+
+  void showThankYouMessage() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Thank you for your patronage'),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Price',
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+              ),
+            ),
+            Text(
+              '\$ ${price.toStringAsFixed(2)}',
+              style: TextStyle(
+                color: Colors.deepOrange,
+                fontSize: 20,
+              ),
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: [
+                IconButton(
+                  icon: Icon(Icons.remove),
+                  onPressed: decreasePrice,
+                ),
+                IconButton(
+                  icon: Icon(Icons.add),
+                  onPressed: increasePrice,
+                ),
+              ],
+            ),
+          ],
+        ),
+        ElevatedButton(
+          onPressed: () {
+            // Show thank you message when button is pressed
+            showThankYouMessage();
+          },
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.resolveWith<Color>(
+              (Set<MaterialState> states) {
+                if (states.contains(MaterialState.hovered)) {
+                  return Colors.deepOrange
+                      .withOpacity(0.8); // Change background color on hover
+                }
+                return Colors.deepOrange;
+              },
+            ),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+            child: Text(
+              'Buy Now',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
